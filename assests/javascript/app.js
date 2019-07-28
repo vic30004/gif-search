@@ -16,7 +16,7 @@ function displayMovieInfo() {
         $(".gif-section").empty();
         let gifTitle = $(this).attr("data-name");
         let queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-            gifTitle + "&api_key=dc6zaTOxFJmzC&limit=10";
+            gifTitle + "&api_key=" + giphyKey;
 
         $.ajax({
             url: queryURL,
@@ -28,7 +28,7 @@ function displayMovieInfo() {
             for (let i = 0; i < results.length; i++) {
                 let gifDiv = $("<div>");
                 let rating = results[i].rating;
-                let p = $("<p>").text("Rating: " + rating);
+                let p = $("<p class='rate'>").text("Rating: " + rating);
                 let still = results[i].images.fixed_height_still.url
                 let animate = results[i].images.fixed_height.url
                 let img = $("<img>");
@@ -41,24 +41,24 @@ function displayMovieInfo() {
                 gifDiv.append(img);
                 $(".gif-section").prepend(gifDiv);
 
-                $(".gif").on("click", function () {
+                $(".gif").on("click", function (e) {
+                    e.stopPropagation();
+                    let anime = false;
                     let state = $(this).attr("data-state");
                     if (state === "still") {
                         $(this).attr("src", $(this).attr("data-animate"));
                         $(this).attr("data-state", "animate");
-                    } else {
+                        anime = true;
+                    } if (anime === false) {
                         $(this).attr("src", $(this).attr("data-still"));
                         $(this).attr("data-state", "still");
+
                     }
                 })
             }
         })
     });
 }
-
-
-
-
 
 $("#add-gif").on("click", function () {
     event.preventDefault();

@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+}
+
+.page{
+
+}
+
+.flex-head{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gif-btn{
+    margin: 5px;
+}
+
+.flex-container{
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    justify-content: center;
+    align-content: center;
+    margin: 20px auto;
+    width: 100%;
+    padding: 20px;
+}
+
+.gif-section{
+    display: flex;
+    flex-flow: row wrap;
+    width: 80%;
+}
+#gif-form{
+    width: 20%;
+    margin-top: 50px;
+}
+
+#add-gif{
+    position: relative;
+    margin: 10px;
+    left: 110px;
+}
+
+.gif{
+    width: 400px;
+    height:300px;
+    margin: 20px;
+}
+.rate{
+    margin: 20px;
+}
