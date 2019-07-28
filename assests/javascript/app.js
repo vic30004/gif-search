@@ -2,8 +2,6 @@ let savedBtn = ["007", "wwe", "fails", "cats", "dogs",]
 
 function displayMovieInfo() {
 
-
-
     $(".search-btn").empty();
     for (let i = 0; i < savedBtn.length; i++) {
         let a = $("<button>");
@@ -13,7 +11,7 @@ function displayMovieInfo() {
         $(".search-btn").append(a);
     }
     $(".search-btn").on("click", ".gif-btn", function () {
-        $(".gif-section").empty();
+        $("#gif-section").empty();
         let gifTitle = $(this).attr("data-name");
         let queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
             gifTitle + "&api_key=" + giphyKey;
@@ -31,6 +29,7 @@ function displayMovieInfo() {
                 let p = $("<p class='rate'>").text("Rating: " + rating);
                 let still = results[i].images.fixed_height_still.url
                 let animate = results[i].images.fixed_height.url
+
                 let img = $("<img>");
                 img.attr("src", still);
                 img.attr("data-still", still);
@@ -39,23 +38,27 @@ function displayMovieInfo() {
                 img.addClass("gif")
                 gifDiv.append(p);
                 gifDiv.append(img);
-                $(".gif-section").prepend(gifDiv);
-
-                $(".gif").on("click", function (e) {
-                    e.stopPropagation();
-                    let anime = false;
-                    let state = $(this).attr("data-state");
-                    if (state === "still") {
-                        $(this).attr("src", $(this).attr("data-animate"));
-                        $(this).attr("data-state", "animate");
-                        anime = true;
-                    } if (anime === false) {
-                        $(this).attr("src", $(this).attr("data-still"));
-                        $(this).attr("data-state", "still");
-
-                    }
-                })
+                $("#gif-section").prepend(gifDiv);
             }
+
+
+
+            
+            $(".gif").on("click", function () {
+                let anime = false;
+                let state = $(this).attr("data-state");
+                if (state === "still") {
+                    $(this).attr("src", $(this).attr("data-animate"));
+                    $(this).attr("data-state", "animate");
+                    anime = true;
+                } if (anime === false) {
+                    $(this).attr("src", $(this).attr("data-still"));
+                    $(this).attr("data-state", "still");
+                    
+                }
+
+                
+            })
         })
     });
 }

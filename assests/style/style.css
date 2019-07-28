@@ -1,9 +1,19 @@
 *{
     box-sizing: border-box;
+    padding:0;
+    margin: 0;
+}
+
+body,html{
+    width: 100%;
+    height: 100vh;
 }
 
 .page{
-
+    width: 100%;
+    height: 1920px;
+    background: #323334; 
+    color: white;
 }
 
 .flex-head{
@@ -25,7 +35,7 @@
     padding: 20px;
 }
 
-.gif-section{
+#gif-section{
     display: flex;
     flex-flow: row wrap;
     width: 80%;
@@ -49,3 +59,10 @@
 .rate{
     margin: 20px;
 }
+
+.none{
+    display:none;
+}
+@media only screen and (max-width: 720px) {
+
+} 
