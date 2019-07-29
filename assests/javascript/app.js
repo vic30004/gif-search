@@ -1,3 +1,7 @@
+let imported = document.createElement('script');
+imported.src = '/assests/javascript/keys.js';
+document.head.appendChild(imported);
+
 let savedBtn = ["007", "wwe", "fails", "cats", "dogs",]
 
 function displayMovieInfo() {
