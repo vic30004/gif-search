@@ -11,7 +11,7 @@ body,html{
 
 .page{
     width: 100%;
-    height: 1920px;
+
     background: #323334; 
     color: white;
 }
@@ -39,6 +39,7 @@ body,html{
     display: flex;
     flex-flow: row wrap;
     width: 80%;
+    height: 100%;
 }
 #gif-form{
     width: 20%;
@@ -62,4 +63,8 @@ body,html{
 
 .none{
     display: none;
+}
+
+img{
+    border-radius: 5px;
 }

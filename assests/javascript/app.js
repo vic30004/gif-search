@@ -7,7 +7,7 @@ function displayMovieInfo() {
         $("#gif-section").empty();
         let gifTitle = $(this).attr("data-name");
         let queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-            gifTitle + "&api_key=" + giphyKey;
+            gifTitle + "&api_key=nNgkOB0LHV1TbQZuTR9zYRFFCUtpuAEk";
 
         $.ajax({
             url: queryURL,
@@ -31,7 +31,7 @@ function displayMovieInfo() {
                 gifDiv.append(p);
                 gifDiv.append(img);
                 $("#gif-section").prepend(gifDiv);
-         }   
+          }  
 
 
 
@@ -45,8 +45,7 @@ function displayMovieInfo() {
                     anime = true;
                 } if (!anime) {
                     $(this).attr("src", $(this).attr("data-still"));
-                    $(this).attr("data-state", "still");
-                    
+                    $(this).attr("data-state", "still");  
                 } 
             })
             
